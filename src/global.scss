@@ -24,3 +24,28 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+// swiper bundle styles
+@import 'swiper/css/bundle';
+
+@font-face {
+    font-family: NetflixSansRegular;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/NetflixSansRegular.ttf');
+  }
+  
+  @font-face {
+    font-family: NetflixSansBold;
+    font-style: normal;
+    font-weight: 500;
+    src: url('./assets/fonts/NetflixSansBold.ttf');
+  }
+
+  h1,
+  h2,
+  h3 {
+  font-size: 32px;
+  font-weight: 500;
+  font-family: NetflixSansBold;
+  color: white;
+}

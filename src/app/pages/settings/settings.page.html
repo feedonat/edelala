@@ -1,0 +1,100 @@
+
+<ion-header  class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/redmarket/items" mode="md" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="settings-outline"></ion-icon>
+       </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="user-content">
+  <div class="content-section user-languages-wrapper">
+    <ion-row class="language-item-row">
+      <ion-col class="language-item">
+  <ion-list lines="none" mode="ios">
+
+          <ion-item [routerLink]="['/settings']" >  
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            <ion-label>
+              <p>Language</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item detail>
+            <ion-icon slot="start" name="color-fill-outline" detail></ion-icon>
+            <ion-label>
+              <p>Theme</p>
+            </ion-label>
+          </ion-item>
+          <ion-item [routerLink]="['/']">
+            <ion-icon  slot="start"  name="heart-outline" detail></ion-icon>
+            <ion-label>
+              <p>Saved Items</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item [routerLink]="['/settings']" >  
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            <ion-label>
+              <p>Community</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item [routerLink]="['/']">
+            <ion-icon slot="start" name="pricetag-outline" detail></ion-icon>
+            <ion-label>
+              <p>Deals</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item [routerLink]="['/']">
+            <ion-icon slot="start"  name="notifications-outline" detail></ion-icon>
+            <ion-label>
+              <p>Notification</p>
+            </ion-label>
+          </ion-item>
+      
+          <ion-item [routerLink]="['/']"> 
+            <ion-icon slot="start"  name="information-circle-outline" detail></ion-icon>
+            <ion-label>
+              <p>Support</p>
+            </ion-label>
+          </ion-item>
+          <ion-item [routerLink]="['/']">
+            <ion-icon  slot ="start" name="bag-add-outline" detail></ion-icon>
+            <ion-label>
+              <p>Help Center</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item [routerLink]="['/settings']" >  
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            <ion-label>
+              <p>Terms & Services</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon  slot ="start" name="log-out-outline" detail></ion-icon>
+            <ion-label>
+              <p>Logout</p>
+            </ion-label>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  <div class="last-section">
+    <div class="app-version">
+    Version 0.0.1
+  </div>
+  </div>
+</ion-content>
+
