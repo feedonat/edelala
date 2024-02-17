@@ -5,6 +5,12 @@
   --page-related-users-gutter: calc(var(--page-margin) / 2);
 }
 
+ion-footer{
+    ion-toolbar{
+        background-color: transparent !important;
+    }
+    
+}
 // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
 .user-content {
 

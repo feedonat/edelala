@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,49 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large"> welcome </ion-title>
     </ion-toolbar>
   </ion-header>
-
+  <ion-row class="ion-justify-content-center ion-text-center category-row">
+    <ion-col size="3"> <ion-button color="light"  size="medium" shape="round">Rental</ion-button> </ion-col>
+    <ion-col size="3"> <ion-button color="light"  size="medium" shape="round">Daycare</ion-button> </ion-col>
+    <ion-col
+      size="3"
+    >
+    <ion-button  color="light" size="medium" shape="round" id="open-modal"> 
+      <ion-icon name="caret-down-outline" slot="end"></ion-icon>Categories</ion-button>
+  
+    </ion-col>
+    <ion-col  size="3"></ion-col>
+  </ion-row>
   <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <ion-modal
+  trigger="open-modal"
+  [initialBreakpoint]="0.25"
+  [breakpoints]="[0, 0.25, 0.5, 0.75]"
+  handleBehavior="cycle"
+>
+  <ng-template>
+    <ion-content class="ion-padding">
+      <ion-label>Select the services you want !.</ion-label>
+      <div class="ion-margin-top">
+        <ion-row>
+          <ion-col class="column-center" size-xs="4" size-sm="4" size-md="3" size-lg="3"
+            *ngFor="let category of categories">
+
+            <ion-card>
+              <img [src]="'./assets/img/'+ category + '.png' "/>
+              <ion-card-header>
+                <ion-card-title>
+                  {{ category}}</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
 </ion-content>
