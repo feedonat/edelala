@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="form"  #loginForm="ngForm" novalidate>
+
+    <ion-label position="stacked" color="medium">
+      <span>username</span>
+    </ion-label>
+    <ion-item class="ion-margin-vertical" color="white" lines="none">
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+
+    <ion-label position="stacked" color="medium">
+      <span>password</span>
+    </ion-label>
+    <ion-item class="ion-margin-vertical" color="white" lines="none">
+      <ion-input type="password" formControlName="password">
+      </ion-input>
+    </ion-item>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="6" size-md="6">
+        <ion-button class="ion-margin-vertical" strong type="submit" expand="block">
+          <span style="text-transform: none;">login</span>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <div class="ion-text-center ion-margin-vertical">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="12" size-md="6" >
+        <ion-button strong type="button" color="fb" expand="block">
+          <ion-icon slot="start" name="logo-facebook"></ion-icon>
+          <span style="text-transform: none;">facebook</span>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size-xs="12" size-md="6">
+        <ion-button strong type="button" color="google" expand="block">
+          <ion-icon slot="start" name="logo-google"></ion-icon>
+          <span style="text-transform: none;">Google login</span>
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+    <div class="ion-margin-vertical">
+      <ion-button strong type="button" expand="block" fill="clear" color="tertiary" (click)="onPresentSignUpModal()">
+        No account yet , Create one
+      </ion-button>
+
+      <ion-button strong class="ion-text-lowercase" type="button" expand="block" fill="clear" color="dark"
+        >
+       forgot password
+      </ion-button>
+    </div>
+
+  </form>
+
+</ion-content>

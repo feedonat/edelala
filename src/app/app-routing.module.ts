@@ -28,7 +28,11 @@ const routes: Routes = [
     path: '',
         redirectTo: '',
         pathMatch: 'full'
+  },  {
+    path: 'auth',
+    loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthPageModule)
   },
+
   
 ];
 @NgModule({
