@@ -7,24 +7,6 @@
   --page-background: var(--app-background-shade);
 
   // Add custom colors to use with [color] property
-  @include ion-color('bright-blue') {
-    --ion-color-bright-blue: #001CFF;
-    --ion-color-bright-blue-rgb: 0,28,255;
-    --ion-color-bright-blue-contrast: #ffffff;
-    --ion-color-bright-blue-contrast-rgb: 255,255,255;
-    --ion-color-bright-blue-shade: #0019e0;
-    --ion-color-bright-blue-tint: #1a33ff;
-  }
-
-  @include ion-color('bright-pink') {
-    --ion-color-bright-pink: #FF0DCB;
-    --ion-color-bright-pink-rgb: 255,13,203;
-    --ion-color-bright-pink-contrast: #ffffff;
-    --ion-color-bright-pink-contrast-rgb: 255,255,255;
-    --ion-color-bright-pink-shade: #e00bb3;
-    --ion-color-bright-pink-tint: #ff25d0;
-  }
-}
 
 // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
 ion-header {
