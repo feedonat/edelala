@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true">
+  <ion-button fill="clear" class="ion-margin" (click)="modalCtrl.dismiss()">
+    <ion-icon name="arrow-back" slot="icon-only" color="white"></ion-icon>
+  </ion-button>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+
+  <ion-list lines="none">
+    <ion-list-header class="ion-margin">
+      <ion-label>Code Verification</ion-label>
+    </ion-list-header>
+
+    <ion-item class="ion-margin" lines="none">
+      <div class="content">
+        <div class="o-c">
+          <div>
+            <div class="card">
+              <p class="a-o-i">Enter verification code</p>
+              <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config"></ng-otp-input>
+              <span *ngIf="otp" class="o-t-p">Entered otp :-{{otp}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-horizontal">
+      <ion-button fill="clear" color="primary" slot="start" (click)="resend()">
+        Resend OTP
+      </ion-button>
+      <ion-fab-button slot="end" color="danger" (click)="verifyOtp()">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+  </ion-list>
+
+</ion-footer>

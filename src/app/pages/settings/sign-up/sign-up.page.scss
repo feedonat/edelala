@@ -9,8 +9,9 @@ ion-content {
   ion-item.item {
     --ion-color-base: var(--ion-color-white-tint);
     --border-color: var(--ion-color-light-shade);
-    --border-width: 1px;
+    --border-width: .5px;
     --border-style: solid;
+    border-radius: 20px;
   }
   
   ion-checkbox {

@@ -12,6 +12,9 @@
 
   <form [formGroup]="form" #signUpForm="ngForm" #myForm="ngForm" novalidate>
 
+    <ion-list-header class="ion-margin">
+      <ion-label>lets capture your profile </ion-label>
+    </ion-list-header>
     <ion-label position="stacked" color="medium">
       <span>Name</span>
     </ion-label>
@@ -43,28 +46,6 @@
       </ion-input>
     </ion-item>
 
-    <ion-label position="stacked" color="medium">
-      <span>password</span>
-    </ion-label>
-    <ion-item class="ion-margin-vertical" color="white" lines="none">
-      <ion-icon slot="start" color="light" [color]="isFieldValid(form.controls['password']) ? 'success' : 'medium'"
-        [name]="isFieldValid(form.controls['password']) ? 'checkmark-circle' : 'close-circle'">
-      </ion-icon>
-      <ion-input type="password" formControlName="password" placeholder='password validation help'>
-      </ion-input>
-    </ion-item>
-
-    <ion-label position="stacked" color="medium">
-      <span>confirm password </span>
-    </ion-label>
-    <ion-item class="ion-margin-vertical" color="white" lines="none">
-      <ion-icon slot="start" color="light" [color]="isFieldValid(form.controls['confirmPassword']) ? 'success' : 'medium'"
-        [name]="isFieldValid(form.controls['confirmPassword']) ? 'checkmark-circle' : 'close-circle'">
-      </ion-icon>
-      <ion-input type="password" formControlName="confirmPassword">
-      </ion-input>
-    </ion-item>
-
     <ion-item class="ion-margin-bottom item-checkbox" lines="none" style="--border-radius: 6px">
       <ion-label class="text-small ion-text-wrap">
          Agree with the
@@ -83,6 +64,5 @@
         <span>Sign up</span>
       </ion-button>
     </div>
-
   </form>
 </ion-content>

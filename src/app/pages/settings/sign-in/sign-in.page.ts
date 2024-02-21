@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
-import { SignUpPage } from '../sign-up/sign-up.page';
+import { ModalController, ModalOptions } from '@ionic/angular';
+import { AuthService } from '../auth.service';
+import { OtpComponent } from '../otp/otp.component';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,25 +11,45 @@ import { SignUpPage } from '../sign-up/sign-up.page';
 })
 export class SignInPage implements OnInit {
 
-  constructor(private modalCtr : ModalController) { }
-  public form: FormGroup;
+  form: FormGroup;
+
+  constructor(
+    private modalCtrl: ModalController,
+    private auth: AuthService
+  ) { }
+
   ngOnInit() {
-
     this.form = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      phone: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
+      }),
     });
   }
 
+  async signIn() {
+    try {
+      if(!this.form.valid) {
+        this.form.markAllAsTouched();
+        return;
+      }
+      console.log(this.form.value);
 
-  onDismiss() {
-    return this. modalCtr. dismiss();
-  }
+      const response = await this.auth.signInWithPhoneNumber('+1' + this.form.value.phone);
+      console.log(response);
 
-  async onPresentSignUpModal() {
-    const modal = await this.modalCtr.create({
-      component: SignUpPage
-    });
-    return await modal.present();
+      const options: ModalOptions = {
+        component: OtpComponent,
+        componentProps: {
+          phone: this.form.value.phone
+        },
+        //swipeToClose: true
+      };
+      const modal = this.modalCtrl.create(options);
+      (await modal).present();
+      const data: any = (await modal).onWillDismiss();
+      console.log(data);
+    } catch(e) {
+      console.log(e);
+    }
   }
 }
