@@ -10,30 +10,17 @@ import { AuthService } from '../auth.service';
 })
 export class OtpComponent implements OnInit {
 
+  otp:string = ''; // Initialize an array with 4 empty strings
+
+  // Event handler for when a digit is entered
+  onDigitEntered(digit: string) {
+
+    this.otp = this.otp.concat(digit);
+    console.log('otp == '+this.otp);
+    console.log('digit == '+digit);
+  }
   @Input() phone;
   isLoading = false;
-  otp: string;
-
-  showOtpComponent = true;
-  @ViewChild('ngOtpInput', { static: false}) ngOtpInput: any;
-  config = {
-    allowNumbersOnly: false,
-    length: 5,
-    isPasswordInput: false,
-    disableAutoFocus: false,
-    placeholder: '',
-    inputStyles: {
-      'width': '50px',
-      'height': '50px'
-    }
-  };
-  onOtpChange(otp) {
-    this.otp = otp;
-  }
-
-  setVal(val) {
-    this.ngOtpInput.setValue(val);
-  }
 
   constructor(
     public modalCtrl: ModalController,

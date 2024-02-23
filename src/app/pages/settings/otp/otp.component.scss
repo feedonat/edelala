@@ -22,3 +22,14 @@ ion-footer {
     }
 
 }
+.otp {
+    margin-right: 5px; /* Add margin-right to create a gap */
+}
+
+/* Increase the height of input elements */
+.otp[type="text"] {
+    height: 60px; /* Set the desired height */
+    line-height: 60px; /* Set the line height to center the text vertically */
+    text-align: center; 
+    font-weight: bold;
+}

@@ -8,6 +8,7 @@ import { SignInPageRoutingModule } from './sign-in-routing.module';
 import { SignInPage } from './sign-in.page';
 import { OtpComponent } from '../otp/otp.component';
 import { AuthService } from '../auth.service';
+import { OtpInputDirective } from 'src/app/utils/Directive/otpInputDirective';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { AuthService } from '../auth.service';
     ReactiveFormsModule
   ],
   providers: [AuthService],
-  declarations: [SignInPage,OtpComponent]
+  exports:[OtpInputDirective],
+  declarations: [SignInPage,OtpComponent , OtpInputDirective]
 })
 export class SignInPageModule {}

@@ -9,11 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { SettingsPageModule } from './pages/settings/settings.module';
+import { SignInPageModule } from './pages/settings/sign-in/sign-in.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule,SignInPageModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)), 
     provideAuth(() => getAuth()), 
     provideFirestore(() => getFirestore())

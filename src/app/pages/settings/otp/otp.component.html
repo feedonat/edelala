@@ -17,8 +17,15 @@
           <div>
             <div class="card">
               <p class="a-o-i">Enter verification code</p>
-              <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config"></ng-otp-input>
-              <span *ngIf="otp" class="o-t-p">Entered otp :-{{otp}}</span>
+              <ion-item lines="none" style="display: flex; justify-content: space-between;">
+                <input class="otp" type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;"  (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp"  type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;" (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp"  type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;" (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp"  type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;" (digitEntered)="onDigitEntered($event)"/>
+                <input  class="otp" type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;" (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp" type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;"  (digitEntered)="onDigitEntered($event)"/>
+              </ion-item>
+              <span class="o-t-p">Entered otp :-{{otp}}</span>
             </div>
           </div>
         </div>
