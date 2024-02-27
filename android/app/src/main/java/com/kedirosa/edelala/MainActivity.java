@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.kedirosa.edelala;
 
 import com.getcapacitor.BridgeActivity;
 

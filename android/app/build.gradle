@@ -1,10 +1,13 @@
-apply plugin: 'com.android.application'
+plugins {
+  id 'com.android.application'
+  id 'com.google.gms.google-services'
+}
 
 android {
-    namespace "io.ionic.starter"
+    namespace "com.kedirosa.edelala"
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "io.ionic.starter"
+        applicationId "com.kedirosa.edelala"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

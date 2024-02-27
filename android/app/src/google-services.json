@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "555833315107",
+    "firebase_url": "https://edelala-default-rtdb.firebaseio.com",
+    "project_id": "edelala",
+    "storage_bucket": "edelala.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555833315107:android:e1815e962be514d1848696",
+        "android_client_info": {
+          "package_name": "com.kedirosa.edelala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555833315107-khsksg25tdo12lrrmdrtbbi2gpqaonun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD613tNEF6OrBk1p4XoH6573R9wqOZDW-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555833315107-khsksg25tdo12lrrmdrtbbi2gpqaonun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
