@@ -31,18 +31,24 @@ export class IntroPage implements OnInit {
 
   pages = [
     {
-      title: 'Watch on any device',
-      text: 'Stream on your phone, tablet, laptop, and TV without paying more.',
+      title: 'Connect with Communities',
+      text: 'Join local communities, Share ideas, ask questions, and engage with like-minded individuals',
       img: './assets/img/intro2.png',
     },
     {
-      title: '3, 2, 1... Download!',
-      text: 'Always have something to watch offline.',
+      title: 'Buy, Sell, or Rent',
+      text: 'buying, selling, or renting items within your community.. searching for a tenant, Edelala has you covered.',
       img: './assets/img/intro3.png',
     },
     {
-      title: 'No pesky contracts',
-      text: 'Cancel anytime.',
+      title: 'Discover Babysitting Services',
+      text: 'Find trusted caregivers in your area or offer your babysitting services to fellow community members.',
+      img: './assets/img/intro4.png',
+    },
+
+    {
+      title: '1 2 3 . . Join us',
+      text: 'lest go ! ',
       img: './assets/img/intro4.png',
     },
   ];
