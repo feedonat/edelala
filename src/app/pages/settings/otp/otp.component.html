@@ -18,24 +18,20 @@
             <div class="card">
               <p class="a-o-i">Enter verification code</p>
               <ion-item lines="none" style="display: flex; justify-content: space-between;">
-                <input class="otp" type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;"  (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp"  type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;" (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp"  type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;" (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp"  type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;" (digitEntered)="onDigitEntered($event)"/>
-                <input  class="otp" type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;" (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp" type="text" otpInput maxlength="1" style="width: calc(100% / 6); border: 1px solid #ccc; border-radius: 20px;"  (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp" type="text" otpInput maxlength="1"  (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp" type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
+                <input class="otp" type="text" otpInput maxlength="1"  (digitEntered)="onDigitEntered($event)"/>
               </ion-item>
-              <span class="o-t-p">Entered otp :-{{otp}}</span>
             </div>
           </div>
         </div>
       </div>
     </ion-item>
 
-    <ion-item lines="none" class="ion-margin-horizontal">
-      <ion-button fill="clear" color="primary" slot="start" (click)="resend()">
-        Resend OTP
-      </ion-button>
+    <ion-item lines="none" class="ion-margin-horizontal"> Didn't get the code ? &nbsp;<a href="" (click)="resend()"> Resend code</a>
       <ion-fab-button slot="end" color="danger" (click)="verifyOtp()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>

@@ -9,6 +9,7 @@ import { SignInPage } from './sign-in.page';
 import { OtpComponent } from '../otp/otp.component';
 import { AuthService } from '../auth.service';
 import { OtpInputDirective } from 'src/app/utils/Directive/otpInputDirective';
+import { SignupComponent } from '../signup/signup.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { OtpInputDirective } from 'src/app/utils/Directive/otpInputDirective';
   ],
   providers: [AuthService],
   exports:[OtpInputDirective],
-  declarations: [SignInPage,OtpComponent , OtpInputDirective]
+  declarations: [SignInPage,OtpComponent , OtpInputDirective , SignupComponent]
 })
 export class SignInPageModule {}

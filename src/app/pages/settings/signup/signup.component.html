@@ -1,48 +1,33 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="end" >
-      <ion-button (click)="onDismiss()">
-        <ion-icon slot="icon-only" name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-button fill="clear" class="ion-margin" (click)="modalCtrl.dismiss()">
+    <ion-icon name="arrow-back" slot="icon-only" color="white"></ion-icon>
+  </ion-button>
+</ion-content>
 
-<ion-content>
-
-  <form [formGroup]="form" #signUpForm="ngForm" #myForm="ngForm" novalidate>
-
+<ion-footer class="ion-no-border">
+  <ion-list lines="none">
     <ion-list-header class="ion-margin">
-      <ion-label>lets capture your profile </ion-label>
+      <ion-label>lets capture your profile</ion-label>
     </ion-list-header>
-    <ion-label position="stacked" color="medium">
-      <span>Name</span>
-    </ion-label>
-    <ion-item class="ion-margin-vertical" lines="none">
-      <ion-icon slot="start" [color]="isFieldValid(form.controls['name']) ? 'success' : 'medium'"
+  <form [formGroup]="form" #signUpForm="ngForm" #myForm="ngForm" novalidate>
+    <ion-item>
+       <ion-icon slot="start" [color]="isFieldValid(form.controls['name']) ? 'success' : 'medium'"
         [name]="isFieldValid(form.controls['name']) ? 'checkmark-circle' : 'close-circle'">
-      </ion-icon>
-      <ion-input type="text" formControlName="name"></ion-input>
+      </ion-icon> 
+      <ion-input type="text"  class="input" formControlName="name" placeholder="name"></ion-input>
     </ion-item>
-
-    <ion-label position="stacked" >
-      <span>username</span>
-    </ion-label>
-    <ion-item class="ion-margin-vertical" lines="none">
+    <ion-item>
       <ion-icon slot="start" color="light" [color]="isFieldValid(form.controls['username']) ? 'success' : 'medium'"
         [name]="isFieldValid(form.controls['username']) ? 'checkmark-circle' : 'close-circle'">
       </ion-icon>
-      <ion-input type="text" formControlName="username"></ion-input>
+      <ion-input class="input" type="text" formControlName="username" placeholder="username"></ion-input>
     </ion-item>
 
-    <ion-label position="stacked" >
-      <span>email</span>
-    </ion-label>
-    <ion-item class="ion-margin-vertical" lines="none">
+    <ion-item>
       <ion-icon slot="start" color="light" [color]="isFieldValid(form.controls['email']) ? 'success' : 'medium'"
         [name]="isFieldValid(form.controls['email']) ? 'checkmark-circle' : 'close-circle'">
       </ion-icon>
-      <ion-input type="email" formControlName="email" placeholder="email">
+      <ion-input type="email"  class="input" formControlName="email" placeholder="email">
       </ion-input>
     </ion-item>
 
@@ -65,4 +50,5 @@
       </ion-button>
     </div>
   </form>
-</ion-content>
+</ion-list>
+</ion-footer>

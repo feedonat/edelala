@@ -3,14 +3,14 @@ ion-content {
 }
 
 ion-footer {
-    height: 88%;
+    height: 100%;
     ion-list {
         height: 100%;
         border-radius: 20px 20px 0 0;
         ion-list-header {
             ion-label {
                 font-weight: bold;
-                font-size: 1.8em;
+                font-size: 1.2em;
             }
         }
         ion-item {
@@ -22,14 +22,23 @@ ion-footer {
     }
 
 }
-.otp {
-    margin-right: 5px; /* Add margin-right to create a gap */
-}
 
 /* Increase the height of input elements */
-.otp[type="text"] {
+.otp {
     height: 60px; /* Set the desired height */
     line-height: 60px; /* Set the line height to center the text vertically */
     text-align: center; 
     font-weight: bold;
+    border-radius: 6px;
+    width: 45px;
+    border: 1px solid #ccc;
+    margin-right: 8px;
 }
+p{
+    font-weight: bold;
+}
+
+.header{
+        font-weight: bold;
+        font-size: 1.2em;
+    }

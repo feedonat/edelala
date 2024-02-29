@@ -34,8 +34,8 @@ export class SignInPage implements OnInit {
       }
       console.log(this.form.value);
 
-      const response = await this.auth.signInWithPhoneNumber('+1' + this.form.value.phone);
-      console.log(response);
+     // const response = await this.auth.signInWithPhoneNumber('+1' + this.form.value.phone);
+     // console.log(response);
 
       const options: ModalOptions = {
         component: OtpComponent,

@@ -1,7 +1,8 @@
 
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { LoadingController, ModalController, ModalOptions, ToastController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
+import { SignupComponent } from '../signup/signup.component';
 
 @Component({
   selector: 'app-otp',
@@ -68,12 +69,28 @@ export class OtpComponent implements OnInit {
   }
 
   async verifyOtp() {
-    try {
-      const response = await this.auth.verifyOtp(this.otp);
-      console.log(response);       
-    } catch(e) {
-      console.log(e);
-    }
+    // try {
+    //   const response = await this.auth.verifyOtp(this.otp);
+    //   console.log(response);       
+    // } catch(e) {
+    //   console.log(e);
+    // }
+
+    const options: ModalOptions = {
+      component: SignupComponent,
+      componentProps: {
+        //phone: this.form.value.phone
+      },
+      //swipeToClose: true
+    };
+
+
+    const modal = this.modalCtrl.create(options);
+    (await modal).present();
+    const data: any = (await modal).onWillDismiss();
+    console.log(data);
+  } catch(e) {
+    console.log(e);
   }
 
 }

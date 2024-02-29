@@ -1,0 +1,29 @@
+
+ion-content {
+    --background: url('../../../../assets/img/ecomm3.png') no-repeat center center/cover;
+}
+
+ion-footer {
+    height: 88%;
+    ion-list {
+        height: 100%;
+        border-radius: 20px 20px 0 0;
+    }
+
+}
+  
+  ion-checkbox {
+    margin-right: 10px;
+  }
+  
+  .input{
+    font-weight: 300;
+}
+ion-item {
+    --background: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 2px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

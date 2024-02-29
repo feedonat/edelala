@@ -1,19 +1,11 @@
-ion-content {
-    --background: var(--ion-color-light);
-  }
-  
-  ion-toolbar.ios {
-    --border-width: 0;
-  }
-  
-  ion-item.item {
-    --ion-color-base: var(--ion-color-white-tint);
-    --border-color: var(--ion-color-light-shade);
-    --border-width: .5px;
-    --border-style: solid;
-    border-radius: 20px;
-  }
-  
+
+  .input{
+    font-weight: 300;
+}
+ion-item {
+    --background: #f1f1f1;
+    margin-bottom: 16px;
+}
   ion-checkbox {
     margin-right: 10px;
   }
