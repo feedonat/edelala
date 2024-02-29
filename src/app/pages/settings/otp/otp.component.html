@@ -18,7 +18,7 @@
             <div class="card">
               <p class="a-o-i">Enter verification code</p>
               <ion-item lines="none" style="display: flex; justify-content: space-between;">
-                <input class="otp" type="text" otpInput maxlength="1"  (digitEntered)="onDigitEntered($event)"/>
+                <input #myInput class="otp" type="text" otpInput maxlength="1"  (digitEntered)="onDigitEntered($event)"/>
                 <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
                 <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
                 <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>

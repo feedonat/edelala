@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, model, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalController, ModalOptions } from '@ionic/angular';
 import { AuthService } from '../auth.service';
@@ -34,15 +34,15 @@ export class SignInPage implements OnInit {
       }
       console.log(this.form.value);
 
-     // const response = await this.auth.signInWithPhoneNumber('+1' + this.form.value.phone);
-     // console.log(response);
+     const response = await this.auth.signInWithPhoneNumber('+1' + this.form.value.phone);
+     console.log(response);
 
       const options: ModalOptions = {
         component: OtpComponent,
         componentProps: {
           phone: this.form.value.phone
         },
-        //swipeToClose: true
+        mode: 'ios'
       };
       const modal = this.modalCtrl.create(options);
       (await modal).present();

@@ -1,5 +1,5 @@
 
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { LoadingController, ModalController, ModalOptions, ToastController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { SignupComponent } from '../signup/signup.component';
@@ -9,8 +9,9 @@ import { SignupComponent } from '../signup/signup.component';
   templateUrl: './otp.component.html',
   styleUrls: ['./otp.component.scss'],
 })
-export class OtpComponent implements OnInit {
+export class OtpComponent implements OnInit , AfterViewInit {
 
+  @ViewChild('myInput') myInput: ElementRef;
   otp:string = ''; // Initialize an array with 4 empty strings
 
   // Event handler for when a digit is entered
@@ -69,21 +70,20 @@ export class OtpComponent implements OnInit {
   }
 
   async verifyOtp() {
-    // try {
-    //   const response = await this.auth.verifyOtp(this.otp);
-    //   console.log(response);       
-    // } catch(e) {
-    //   console.log(e);
-    // }
-
+    try {
+      const response = await this.auth.verifyOtp(this.otp);
+      console.log(response);       
+    } catch(e) {
+      console.log(e);
+    }
     const options: ModalOptions = {
       component: SignupComponent,
       componentProps: {
         //phone: this.form.value.phone
       },
+      mode: 'ios'
       //swipeToClose: true
     };
-
 
     const modal = this.modalCtrl.create(options);
     (await modal).present();
@@ -91,6 +91,11 @@ export class OtpComponent implements OnInit {
     console.log(data);
   } catch(e) {
     console.log(e);
+  }
+
+  ngAfterViewInit() {
+    console.log("called one time ")
+    this.myInput.nativeElement.focus();
   }
 
 }
