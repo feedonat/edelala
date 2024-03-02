@@ -1,5 +1,5 @@
 
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { LoadingController, ModalController, ModalOptions, ToastController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { SignupComponent } from '../signup/signup.component';
@@ -9,7 +9,7 @@ import { SignupComponent } from '../signup/signup.component';
   templateUrl: './otp.component.html',
   styleUrls: ['./otp.component.scss'],
 })
-export class OtpComponent implements OnInit , AfterViewInit {
+export class OtpComponent implements OnInit , AfterViewChecked {
 
   @ViewChild('myInput') myInput: ElementRef;
   otp:string = ''; // Initialize an array with 4 empty strings
@@ -28,7 +28,8 @@ export class OtpComponent implements OnInit , AfterViewInit {
     public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
-    private auth: AuthService
+    private auth: AuthService,
+    private  elementRef : ElementRef
     ) { }
 
   ngOnInit() {}
@@ -62,7 +63,7 @@ export class OtpComponent implements OnInit , AfterViewInit {
 
   async resend() {
     try {
-      const response = await this.auth.signInWithPhoneNumber('+91' + this.phone);
+      const response = await this.auth.signInWithPhoneNumber('+1' + this.phone);
       console.log(response);       
     } catch(e) {
       console.log(e);
@@ -93,9 +94,10 @@ export class OtpComponent implements OnInit , AfterViewInit {
     console.log(e);
   }
 
-  ngAfterViewInit() {
-    console.log("called one time ")
-    this.myInput.nativeElement.focus();
+  ngAfterViewChecked() {
+      if (this.myInput && this.myInput.nativeElement) {
+        this.myInput.nativeElement.focus();
+      }
   }
 
 }
