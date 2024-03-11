@@ -17,25 +17,16 @@
           <div>
             <div class="card">
               <p class="a-o-i">Enter verification code</p>
-              <ion-item lines="none" style="display: flex; justify-content: space-between;">
-                <input #myInput class="otp" type="text" otpInput maxlength="1"  (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp"  type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp" type="text" otpInput maxlength="1" (digitEntered)="onDigitEntered($event)"/>
-                <input class="otp" type="text" otpInput maxlength="1"  (digitEntered)="onDigitEntered($event)"/>
-              </ion-item>
+              <ng-otp-input #ngOtpInput  (onInputChange)="onOtpChange($event)"  [config]="config"></ng-otp-input>
             </div>
           </div>
         </div>
       </div>
     </ion-item>
-
     <ion-item lines="none" class="ion-margin-horizontal"> Didn't get the code ? &nbsp;<a href="" (click)="resend()"> Resend code</a>
       <ion-fab-button slot="end" color="danger" (click)="verifyOtp()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-item>
   </ion-list>
-
 </ion-footer>

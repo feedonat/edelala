@@ -10,6 +10,8 @@ import { OtpComponent } from '../otp/otp.component';
 import { AuthService } from '../auth.service';
 import { OtpInputDirective } from 'src/app/utils/Directive/otpInputDirective';
 import { SignupComponent } from '../signup/signup.component';
+import { CodeInputModule } from 'angular-code-input';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { SignupComponent } from '../signup/signup.component';
     FormsModule,
     IonicModule,
     SignInPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CodeInputModule,
+    NgOtpInputModule
   ],
   providers: [AuthService],
   exports:[OtpInputDirective],

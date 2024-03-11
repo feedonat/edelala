@@ -14,6 +14,8 @@ export class OtpComponent implements OnInit , AfterViewChecked {
   @ViewChild('myInput') myInput: ElementRef;
   otp:string = ''; // Initialize an array with 4 empty strings
 
+  @ViewChild('ngOtpInput', { static: false}) ngOtpInput: any;
+
   // Event handler for when a digit is entered
   onDigitEntered(digit: string) {
 
@@ -32,7 +34,14 @@ export class OtpComponent implements OnInit , AfterViewChecked {
     private  elementRef : ElementRef
     ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    //let eleId=this.ngOtpInput.getBoxId(0);
+    this.ngOtpInput.focusTo(0);
+  }
+
+  setVal(val) {
+    this.ngOtpInput.setValue(val);
+  }
 
   showLoader(msg) {
     if(!this.isLoading) this.isLoading = true;
@@ -95,9 +104,35 @@ export class OtpComponent implements OnInit , AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-      if (this.myInput && this.myInput.nativeElement) {
-        this.myInput.nativeElement.focus();
-      }
+      // if (this.myInput && this.myInput.nativeElement) {
+      //   this.myInput.nativeElement.focus();
+      // }
   }
+
+    // this called every time when user changed the code
+onCodeChanged(code: string) {
+  console.log('onCodeChange'+code)
+}
+
+// this called only if user entered full code
+onCodeCompleted(code: string) {
+  console.log('onCodeCompleted'+code)
+}
+
+onOtpChange(otp) {
+  console.log('on otp change '+otp)
+}
+
+config = {
+  allowNumbersOnly: true,
+  length: 6,
+  isPasswordInput: false,
+  disableAutoFocus: false,
+  placeholder: '',
+  inputStyles: {
+    'width': '40px',
+    'height': '50px'
+  }
+};
 
 }
