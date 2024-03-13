@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StatusBar } from '@capacitor/status-bar';
+import { StatusBar, StatusBarStyle, Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,8 @@ export class AppComponent {
   constructor() {
     this.initializeApp();
   }
-  initializeApp() {
+  async initializeApp() {
+    await StatusBar.setStyle({ style: Style.Light });
     // Make status bar transparent
     StatusBar.setOverlaysWebView({ overlay: true });
     StatusBar.setBackgroundColor({ color: '#00000000' }); // Set transparent color
