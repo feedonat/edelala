@@ -1,3 +1,12 @@
+ion-header {
+  --border-width: 0; /* Set border width to 0 */
+  --box-shadow: none; /* Set box-shadow to none */
+}
+ion-toolbar {
+  --border-width: 0; /* Set border width to 0 */
+  --box-shadow: none !important; /* Set box-shadow to none */
+}
+
 ion-button{
     font-size:0.7em ;
     border-width: 0.5px;

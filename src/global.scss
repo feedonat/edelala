@@ -49,3 +49,10 @@
   font-family: NetflixSansBold;
   color: white;
 }
+
+ion-header {
+  &.ion-no-border {
+    --border-width: 0; /* Set border width to 0 */
+    --box-shadow: none; /* Set box-shadow to none */
+  }
+}

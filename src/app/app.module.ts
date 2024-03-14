@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { SettingsPageModule } from './pages/settings/settings.module';
 import { SignInPageModule } from './pages/settings/sign-in/sign-in.module';
+import { StatusBar } from '@capacitor/status-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { SignInPageModule } from './pages/settings/sign-in/sign-in.module';
     provideAuth(() => getAuth()), 
     provideFirestore(() => getFirestore())
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [ { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
