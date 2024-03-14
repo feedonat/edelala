@@ -11,9 +11,6 @@ export class AppComponent {
     this.initializeApp();
   }
   async initializeApp() {
-    await StatusBar.setStyle({ style: Style.Light });
-    // Make status bar transparent
     StatusBar.setOverlaysWebView({ overlay: true });
-    StatusBar.setBackgroundColor({ color: '#00000000' }); // Set transparent color
   }
 }
