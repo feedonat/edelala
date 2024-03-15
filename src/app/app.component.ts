@@ -11,6 +11,6 @@ export class AppComponent {
     this.initializeApp();
   }
   async initializeApp() {
-    StatusBar.setOverlaysWebView({ overlay: false });
+    StatusBar.setOverlaysWebView({ overlay: true });
   }
 }

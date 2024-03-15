@@ -56,3 +56,7 @@ ion-header {
     --box-shadow: none; /* Set box-shadow to none */
   }
 }
+ion-header {
+   // Adjust header padding to avoid overlapping with the status bar
+  //margin-top: 10px;
+}

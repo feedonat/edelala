@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class Tab1Page implements OnInit {
 
   categories = [];
+  themeToggle: any;
   constructor() {}
+  isDarkTheme = false;
   ngOnInit(): void {
-    
     this.categories.push('Rental')
     this.categories.push('Buy&Sell')
     this.categories.push('Daycare')
@@ -19,5 +20,4 @@ export class Tab1Page implements OnInit {
     this.categories.push('Car')
     this.categories.push('Ziwaj')
   }
-
 }
