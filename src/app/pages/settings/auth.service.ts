@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Auth, RecaptchaVerifier, signInWithPhoneNumber } from '@angular/fire/auth';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +9,8 @@ export class AuthService {
   confirmationResult: any;
 
   constructor(
-    private _fireAuth: Auth
-  ) { }
+    private _fireAuth: Auth,
+  ) {}
 
   recaptcha() {
     this.appVerifier = new RecaptchaVerifier( this._fireAuth,  'sign-in-button', {
@@ -37,10 +36,7 @@ export class AuthService {
   async verifyOtp(otp) {
     try {
       if(!this.appVerifier) this.recaptcha();
-      const result = await this.confirmationResult.confirm(otp);
-      console.log(result);
-      const user = result?.user;
-      console.log(user);
+      return await this.confirmationResult.confirm(otp);
     } catch(e) {
       throw(e?.message);
     }

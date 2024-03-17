@@ -12,16 +12,14 @@ import { SignupComponent } from '../signup/signup.component';
 export class OtpComponent implements OnInit , AfterViewChecked {
 
   @ViewChild('myInput') myInput: ElementRef;
+  @Input() signinModal : ModalController;
   otp:string = ''; // Initialize an array with 4 empty strings
 
   @ViewChild('ngOtpInput', { static: false}) ngOtpInput: any;
 
   // Event handler for when a digit is entered
   onDigitEntered(digit: string) {
-
     this.otp = this.otp.concat(digit);
-    console.log('otp == '+this.otp);
-    console.log('digit == '+digit);
   }
   @Input() phone;
   isLoading = false;
@@ -80,25 +78,26 @@ export class OtpComponent implements OnInit , AfterViewChecked {
   }
 
   async verifyOtp() {
+    let options: ModalOptions
     try {
-      const response = await this.auth.verifyOtp(this.otp);
-      console.log(response);       
+      let response = await this.auth.verifyOtp(this.otp);
+       console.log("otp response == "+ JSON.stringify( response?.user));    
+       options = {
+        component: SignupComponent,
+        componentProps: {
+          data: response?.user,
+          otpModal: this.modalCtrl,
+          signInModal : this.signinModal
+        },
+        mode: 'ios',
+      };   
     } catch(e) {
       console.log(e);
     }
-    const options: ModalOptions = {
-      component: SignupComponent,
-      componentProps: {
-        //phone: this.form.value.phone
-      },
-      mode: 'ios'
-      //swipeToClose: true
-    };
-
     const modal = this.modalCtrl.create(options);
     (await modal).present();
-    const data: any = (await modal).onWillDismiss();
-    console.log(data);
+   const data: any = (await modal).onWillDismiss();
+   console.log(data);
   } catch(e) {
     console.log(e);
   }
@@ -120,6 +119,7 @@ onCodeCompleted(code: string) {
 }
 
 onOtpChange(otp) {
+  this.otp = otp;
   console.log('on otp change '+otp)
 }
 

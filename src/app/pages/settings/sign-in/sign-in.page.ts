@@ -40,7 +40,8 @@ export class SignInPage implements OnInit {
       const options: ModalOptions = {
         component: OtpComponent,
         componentProps: {
-          phone: this.form.value.phone
+          phone: this.form.value.phone,
+          signinModal : this.modalCtrl
         },
         mode: 'ios'
       };
