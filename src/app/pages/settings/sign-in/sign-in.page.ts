@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalController, ModalOptions } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { OtpComponent } from '../otp/otp.component';
+import { ModalService } from 'src/app/utils/modal.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,10 +16,12 @@ export class SignInPage implements OnInit {
 
   constructor(
     private modalCtrl: ModalController,
-    private auth: AuthService
+    private auth: AuthService,
+    private modalService : ModalService
   ) { }
 
   ngOnInit() {
+    this.modalService.registerModal(this.modalCtrl);
     this.form = new FormGroup({
       phone: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
@@ -41,9 +44,9 @@ export class SignInPage implements OnInit {
         component: OtpComponent,
         componentProps: {
           phone: this.form.value.phone,
-          signinModal : this.modalCtrl
         },
-        mode: 'ios'
+        mode: 'ios',
+        id: 'modalOtp'
       };
       const modal = this.modalCtrl.create(options);
       (await modal).present();

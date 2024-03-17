@@ -11,6 +11,11 @@ ion-content {
   }
 }
 
+ion-content::part(content) {
+    background-size: 50% 100%; /* Cover half of the horizontal page */
+    background-position: left top; /* Position the background on the left */
+}
+
 ion-footer {
   ion-row {
       padding-top: 5vh;

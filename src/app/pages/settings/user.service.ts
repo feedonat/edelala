@@ -21,7 +21,7 @@ export class UserService {
         email: email,
         username: username
       });
-      console.log('User information saved successfully.');
+      return name;
     } catch (error) {
       console.error('Error saving user information:', error);
       throw error;

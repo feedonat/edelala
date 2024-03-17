@@ -1,8 +1,9 @@
 
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { LoadingController, ModalController, ModalOptions, ToastController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
-import { SignupComponent } from '../signup/signup.component';
+import { ModalService } from 'src/app/utils/modal.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-otp',
@@ -29,10 +30,13 @@ export class OtpComponent implements OnInit , AfterViewChecked {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     private auth: AuthService,
-    private  elementRef : ElementRef
+    private  elementRef : ElementRef,
+    private modalService : ModalService,
+    private router : Router
     ) { }
 
   ngOnInit() {
+    this.modalService.registerModal(this.modalCtrl);
     //let eleId=this.ngOtpInput.getBoxId(0);
     this.ngOtpInput.focusTo(0);
   }
@@ -81,27 +85,16 @@ export class OtpComponent implements OnInit , AfterViewChecked {
     let options: ModalOptions
     try {
       let response = await this.auth.verifyOtp(this.otp);
-       console.log("otp response == "+ JSON.stringify( response?.user));    
-       options = {
-        component: SignupComponent,
-        componentProps: {
-          data: response?.user,
-          otpModal: this.modalCtrl,
-          signInModal : this.signinModal
-        },
-        mode: 'ios',
-      };   
+       console.log("otp response == "+ JSON.stringify( response?.user));  
+       let data =  {uid:response.user.uid , phone: response?.user.phoneNumber}
+       console.log('route data ' + data)
+       this.modalCtrl.dismiss();
+       this.router.navigateByUrl('/setting/signup' , { state: data })
+       
     } catch(e) {
       console.log(e);
     }
-    const modal = this.modalCtrl.create(options);
-    (await modal).present();
-   const data: any = (await modal).onWillDismiss();
-   console.log(data);
-  } catch(e) {
-    console.log(e);
   }
-
   ngAfterViewChecked() {
       // if (this.myInput && this.myInput.nativeElement) {
       //   this.myInput.nativeElement.focus();

@@ -2,6 +2,10 @@ ion-content {
     --background: url('../../../../assets/img/ecomm3.png') no-repeat center center/cover;
 }
 
+ion-content::part(content) {
+    background-size: 50% 100%; /* Cover half of the horizontal page */
+    background-position: left top; /* Position the background on the left */
+}
 ion-footer {
     height: 88%;
     ion-list {

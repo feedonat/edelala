@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { SignInPageModule } from './pages/settings/sign-in/sign-in.module';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { ModalService } from './utils/modal.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     provideAuth(() => getAuth()), 
     provideFirestore(() => getFirestore())
   ],
-  providers: [ { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
+  providers: [ { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },{ provide: FIREBASE_OPTIONS, useValue: environment.firebase },ModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
