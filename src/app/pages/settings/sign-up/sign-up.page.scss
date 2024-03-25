@@ -1,8 +1,16 @@
 
-ion-content {
-  --background: url('../../../../assets/img/ecomm3.png') no-repeat center center/cover;
-}
+// ion-content {
+//   --background: url('../../../../assets/img/ecomm3.png') no-repeat center center/cover;
+// }
 
+.background-image {
+  background-image: url('../../../../assets/img/ecomm3.png') no-repeat center center/cover; /* Path to your image */
+  background-size: auto 100%; /* Cover the entire height and adjust width automatically */
+  background-position: left; /* Align the background to the left */
+  background-repeat: no-repeat; /* Prevent the background from repeating */
+  width: 100%; /* Cover half of the screen horizontally */
+  height: 50%; /* Cover the entire height of the container */
+}
 ion-footer {
   height: 88%;
   ion-list {

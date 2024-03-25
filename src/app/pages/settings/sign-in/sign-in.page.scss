@@ -1,6 +1,6 @@
 
 ion-content {
-  --background: url('../../../../assets/img/ecomm1.png') no-repeat center center/cover;
+//   --background: url('../../../../assets/img/ecomm1.png') no-repeat center center/cover;
   ion-grid {
       transform: translateY(10vh);
       ion-label, p {
@@ -10,11 +10,13 @@ ion-content {
       }
   }
 }
-
-ion-content::part(content) {
-    background-size: 50% 100%; /* Cover half of the horizontal page */
-    background-position: left top; /* Position the background on the left */
-}
+.background-image {
+    --background: url('../../../../assets/img/ecomm3.png') no-repeat center center/cover; /* Path to your image */
+    //background-size: auto 100%; /* Cover the entire height and adjust width automatically */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    width: 100%; /* Cover half of the screen horizontally */
+    height: 50%; /* Cover the entire height of the container */
+  }
 
 ion-footer {
   ion-row {

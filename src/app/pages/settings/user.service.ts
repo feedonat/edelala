@@ -13,10 +13,10 @@ export class UserService {
 
 
   async signUp(user:any, name: string, email: string, username: string) {
-    console.log(  'user id was '+user.uid);
+    console.log(  'user id was '+ JSON.stringify(user));
     try {
       await this.db.collection('users').doc(user.uid).set({
-        phoneNumber: user.phoneNumber,
+        phoneNumber: user?.phone,
         name: name,
         email: email,
         username: username
