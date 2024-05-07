@@ -52,7 +52,7 @@ export class SignupComponent  implements OnInit {
       console.log(JSON.stringify(data) + 'respone from db save ');
       const toast = await this.toastCtrl.create({
         message: 'Registration successful!',
-        duration: 3000, // Duration in milliseconds
+        duration: 2000, // Duration in milliseconds
         position: 'bottom' // Position of the toast
       });
       toast.present();

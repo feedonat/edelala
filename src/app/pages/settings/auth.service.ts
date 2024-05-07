@@ -7,6 +7,7 @@ export class AuthService {
 
   appVerifier: any;
   confirmationResult: any;
+  user: any = null;
 
   constructor(
     private _fireAuth: Auth,
@@ -40,6 +41,10 @@ export class AuthService {
     } catch(e) {
       throw(e?.message);
     }
+  }
+
+  getCurrentUser() {
+    return this._fireAuth.currentUser
   }
 
 }

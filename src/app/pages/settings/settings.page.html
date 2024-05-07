@@ -21,14 +21,14 @@
 <ion-content class="user-content">
   <section class="heading toolbar-background">
     <ion-avatar>
-      <img src-fallback="./assets/img/avatar.png" [src]="user?.photo?.url()" />
+      <img [src]="loginUser?.photo?.url() || 'assets/img/account.png'" alt="usr-img"/>
     </ion-avatar>
-    <h5 class="bold" *ngIf="user?.name">{{ user?.name }}</h5>
-    <h3 *ngIf=" !user || user?.isAnonymous()">
+    <h5 class="bold" *ngIf="loginUser?.name">{{ loginUser?.name }}</h5>
+    <h3 *ngIf=" !loginUser">
       GUEST
     </h3>
     <ion-button style="text-transform: none;" strong class="ion-margin-top"
-      *ngIf="!user || (user && user?.isAnonymous())" (click)="openModal()">
+      *ngIf="!loginUser" (click)="openModal()">
       Create Account or login
     </ion-button>
 
