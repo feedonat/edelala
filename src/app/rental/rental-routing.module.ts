@@ -5,7 +5,7 @@ import { RentalPage } from './rental.page';
 
 const routes: Routes = [
   {
-    path: 'list',
+    path: '1',
     component: RentalPage
   },
   {
@@ -17,6 +17,14 @@ const routes: Routes = [
     path: '',
         redirectTo: 'new',
         pathMatch: 'full'
+  },
+  {
+    path: 'detail',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./list/list.module').then( m => m.ListPageModule)
   },
 ];
 

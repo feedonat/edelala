@@ -28,9 +28,15 @@ const routes: Routes = [
     path: '',
         redirectTo: '',
         pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'rental',
     loadChildren: () => import('./rental/rental.module').then( m => m.RentalPageModule)
+  },
+
+  {
+    path: 'rental/detail/:id',
+    loadChildren: () => import('./rental/detail/detail.module').then( m => m.DetailPageModule)
   },
 
 

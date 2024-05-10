@@ -1,0 +1,26 @@
+/* Add custom styles for the form */
+ion-item {
+    --ion-item-background: #f9f9f9; /* Background color */
+    --ion-item-border-radius: 10px; /* Border radius */
+    --ion-item-padding-end: 10px; /* Right padding */
+    --ion-item-padding-start: 10px; /* Left padding */
+  }
+  
+  ion-label {
+    color: #333; /* Label color */
+  }
+  
+  ion-select,
+  ion-input {
+    border-radius: 8px; /* Input border radius */
+  }
+  
+  ion-text.color-danger {
+    margin-top: 5px; /* Margin for validation message */
+  }
+  
+  .invalid ion-select,
+  .invalid ion-input {
+    --border-color: #f44336; /* Border color for invalid inputs */
+  }
+  

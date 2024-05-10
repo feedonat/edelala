@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { SwiperOptions } from 'swiper';
-import { SwiperComponent } from 'swiper/angular';
 import Swiper, { Pagination } from 'swiper';
+import { SwiperComponent } from 'swiper/angular';
 
 Swiper.use([Pagination]);
 

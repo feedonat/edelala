@@ -7,6 +7,9 @@ import { AlertController, ToastController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { StorageService } from 'src/app/StorageService';
 import { User } from 'src/app/pages/models/user';
+import { FilePicker, PickedFile } from '@capawesome/capacitor-file-picker';
+
+type Img = {name:string , data:string};
 
 @Component({
   selector: 'app-new',
@@ -26,11 +29,11 @@ item: any ;
 currentUser:User = null;
 base64Images =[];
 public rentalForm: FormGroup;
+public files: PickedFile[] = [];
 
 constructor(
   private formBuilder: FormBuilder,
     private actionSheetController : ActionSheetController,
-    private imagePicker :ImagePicker,
     private loadingCtrl:LoadingController,
     private rentalService :RentalService,
     private toastCtrl: ToastController,
@@ -45,6 +48,7 @@ ngOnInit() {
     propertyType: ['', Validators.required],
     address: ['', Validators.required],
     desc: ['' , Validators.required],
+    title: ['' , Validators.required],
     rentAmount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
   });
   //get current user 
@@ -56,7 +60,7 @@ ngOnInit() {
 }
 
   async saveRental(){
-  if (this.rentalForm.valid && this.currentUser) {
+ // if (this.rentalForm.valid && this.currentUser) {
     console.log(this.rentalForm.value);
     
     let loading = await this.loadingCtrl.create({
@@ -65,7 +69,7 @@ ngOnInit() {
     await loading.present();
     this.rentalService.addNewItem( this.currentUser, this.rentalForm.value , this.images).then(
       async (res) => {
-        loading.dismiss();
+       loading.dismiss();
         let toast = await this.toastCtrl.create({
           duration: 3000,
           message: "Successfully Posted new Item!",
@@ -85,38 +89,34 @@ ngOnInit() {
       }
     );
   
-  }
+  //}
 }
 
-pickMultipleImages(){
+  async pickMultipleImages(){
   var options: ImagePickerOptions ={
     maximumImagesCount:6,
     outputType:OutputType.DATA_URL,
   }
-  this.imagePicker.getPictures(options).then((results) => {
-    for (var i = 0; i < results.length; i++) {
+  await FilePicker.pickImages({ readData: true }).then((results) => {
+    for (var i = 0; i < results.files.length; i++) {
       //let filename = results[i].
-        let base64Image = 'data:image/jpeg;base64,' + results[i];
+        let base64Image = 'data:image/jpeg;base64,' + results.files[i].data;
         this.base64Images.push(base64Image);
-        this.images.push(results[i]);
+        this.images.push(results.files[i].data);
     }
-  }, (err) => { });
+  }, (err) => {console.error('Error picking images:', err); });
 }
 
-
-pickSingleImage(){
-  var options: ImagePickerOptions ={
-    outputType:OutputType.DATA_URL,
-  }
-  this.imagePicker.getPictures(options).then((result) => {
-    this.coverImage = 'data:image/jpeg;base64,' + result;
+  async pickSingleImage(){
+  await FilePicker.pickImages({ readData: true }).then((result) => {
+    this.coverImage = 'data:image/jpeg;base64,' + result.files[0].data;
     this.images[0].push(this.coverImage);
   }, (err) => {console.log(err) });
 }
 
 async addImage(source: CameraSource) {
   await Camera.getPhoto({
-  quality: 60,
+  quality: 90,
   allowEditing: true,
   resultType: CameraResultType.DataUrl,
   source
@@ -163,6 +163,38 @@ async selectImageSource() {
   await actionSheet.present();
 }
 
+async imgEdit() {
+  const buttons = [
+    {
+      text: 'Set as cover photo',
+      handler: () => {
+        //this.addImage(CameraSource.Camera);
+      }
+    },
+    {
+      text: 'Edit',
+      handler: () => {
+
+      }
+    },
+    {
+      text: 'Delete',
+      handler: () => {
+      }
+    },
+    {
+      text: 'Cancel',
+      handler: () => {
+
+      }
+    }
+  ];
+
+  const actionSheet = await this.actionSheetController.create({
+    buttons
+  });
+  await actionSheet.present();
+}
 
 b64toBlob(b64Data, contentType = '', sliceSize = 512) {
   const byteCharacters = atob(b64Data);
@@ -174,7 +206,6 @@ b64toBlob(b64Data, contentType = '', sliceSize = 512) {
     for (let i = 0; i < slice.length; i++) {
       byteNumbers[i] = slice.charCodeAt(i);
     }
-
     const byteArray = new Uint8Array(byteNumbers);
     byteArrays.push(byteArray);
   }

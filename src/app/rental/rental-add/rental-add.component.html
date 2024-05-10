@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup] = "rentalForm" (ngSubmit)="saveRental()" class="form-container">
+  <form [formGroup]="rentalForm" (ngSubmit)="submitForm()" class="form-container">
     <ion-item [class.invalid]="rentalForm.get('propertyType').invalid && rentalForm.get('propertyType').touched">
       <ion-label position="stacked">Property Type</ion-label>
       <ion-select formControlName="propertyType" placeholder="Select Property Type">
@@ -17,16 +17,6 @@
     <ion-text color="danger" *ngIf="rentalForm.get('propertyType').invalid && rentalForm.get('propertyType').touched">
       <p *ngIf="rentalForm.get('propertyType').errors?.required">Property Type is required</p>
     </ion-text>
-
-    <ion-item [class.invalid]="rentalForm.get('title').invalid && rentalForm.get('title').touched">
-      <ion-label position="stacked">Title</ion-label>
-      <ion-input formControlName="title" type="text" placeholder="Enter title"></ion-input>
-    </ion-item>
-
-    <ion-item [class.invalid]="rentalForm.get('desc').invalid && rentalForm.get('desc').touched">
-      <ion-label position="stacked">Description</ion-label>
-      <ion-input formControlName="desc" type="text" placeholder="Enter Description"></ion-input>
-    </ion-item>
 
     <ion-item [class.invalid]="rentalForm.get('address').invalid && rentalForm.get('address').touched">
       <ion-label position="stacked">Address</ion-label>
@@ -44,39 +34,8 @@
       <p *ngIf="rentalForm.get('rentAmount').errors?.required">Rent Amount is required</p>
       <p *ngIf="rentalForm.get('rentAmount').errors?.pattern">Rent Amount must be a number</p>
     </ion-text>
-    <ion-button type="submit" expand="block">Submit</ion-button>
-  </form>
 
-  <h4>Add Item Photo</h4>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card mode="ios" class="step2-ion-card" (click)="pickSingleImage()" color="primary" button ion-activatable ripple-parent>
-          <img *ngIf="coverImage" class="cover-img" [src]="coverImage">
-          <div class="content">
-            <ion-icon class="ion-icon-camera" name="camera-outline"></ion-icon>
-          </div>
-          <p>Add cover image</p> 
-        </ion-card>
-      </ion-col>
-      <ion-col size="6" ion-activatable ripple-parent>
-        <ion-card mode="ios" class="step2-ion-card" (click)="pickMultipleImages()" button>
-          <div class="content">
-            <ion-icon class="ion-icon-camera" name="add"></ion-icon>
-            <p>Add photo</p>
-          </div>
-          <p>Add up to 6 photos</p>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <!-- Display uploaded images -->
-    <ion-row class="img-row">
-      <ion-col size="3" *ngFor="let image of base64Images">
-        <ion-card class="imgs-ion-card" ion-activatable ripple-parent button (click)="editImage(image)">
-          <img [src]="image" alt="image">
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-button type="submit" [disabled]="rentalForm.invalid" expand="block">Submit</ion-button>
+  </form>
 </ion-content>
 

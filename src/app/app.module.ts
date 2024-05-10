@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -13,12 +13,11 @@ import { SignInPageModule } from './pages/settings/sign-in/sign-in.module';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ModalService } from './utils/modal.service';
 import { IonicStorageModule } from '@ionic/storage-angular';
-import { Drivers, Storage } from '@ionic/storage';
+import { Drivers } from '@ionic/storage';
 import { getStorage, provideStorage } from '@angular/fire/storage';
-import { ImagePicker } from '@ionic-native/image-picker/ngx';
-
 @NgModule({
   declarations: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     IonicStorageModule.forRoot({
       name: '__mydb',
@@ -30,7 +29,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
     provideStorage(() => getStorage()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [ { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }, ModalService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }, ModalService ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
