@@ -290,3 +290,12 @@ ion-card{
     }
   }
 }
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--ion-color-primary) !important;
+}
+
+.swiper-pagination-bullets {
+  bottom: calc(80px + var(--ion-safe-area-bottom)) !important;
+}

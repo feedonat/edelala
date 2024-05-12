@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { RentalService } from '../rental.service';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { SwiperComponent } from 'swiper/angular';
   selector: 'app-detail',
   templateUrl: './detail.page.html',
   styleUrls: ['./detail.page.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DetailPage implements OnInit {
 
@@ -80,7 +81,7 @@ export class DetailPage implements OnInit {
   }
 
   backClicked(){
-    this.router.navigateByUrl("redmarket/items");
+    this.router.navigateByUrl("rental/list");
   }
 
   getPublicProfile(){

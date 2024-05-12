@@ -1,38 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Rentals</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="app/categories"></ion-back-button>
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Rentals</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content class="food-listing-content">
+<ion-content>
   <ng-container *ngIf="items">
-    <div class="listing-item" *ngFor="let item of items | async">
-      <div class="cover-wrapper">
-        <a class="cover-anchor" [routerLink]="['/rental/detail/', item?.id]">
-              <div class="cover-icon-wrapper">
-                <ion-img [src]="item?.images[0]" alt=""></ion-img>
-              </div>
-        </a>
-      </div>
+    <div *ngFor="let item of items | async">
       <ion-row class="info-row">
-        <ion-col class="description-col">
-          <ion-row class="description-wrapper">
-            <h3 class="item-name">
-              <a class="name-anchor" [routerLink]="['/rental/detail/', item?.id]">
-                <ion-text>{{item?.title}}</ion-text>
-              </a>
-            </h3>
+        <ion-card mode="ios">
+          <img [src]="item?.images[0]" alt=""  [routerLink]="['/rental/detail/', item?.id]" />
+          <ion-card-header>
+            <ion-card-title>{{item?.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
             <p class="item-address">
               <ion-text>{{item.address}}</ion-text>
             </p>
+            {{item?.desc}}
+            <div class="price">{{item?.rentAmount}}</div>
             <ion-row class="item-tags">
               <ion-col class="tag-wrapper" *ngFor="let tag of item.tags">
                 <span class="item-tag">
@@ -40,17 +28,18 @@
                 </span>
               </ion-col>
             </ion-row>
-          </ion-row>
-        </ion-col>
-        <ion-col class="stats-col">
-          <span class="item-rating">
-            <app-text-shell [data]="item.likes"></app-text-shell>
-          </span>
-          <div class="item-price-range">
-            <span class="price" *ngFor="let price of [].constructor(item.priceRange)">$</span>
-            <span class="no-price" *ngFor="let price of [].constructor(5 - (item.priceRange || 1))">$</span>
-          </div>
-        </ion-col>
+
+            <ion-col class="stats-col">
+              <span class="item-rating">
+                <app-text-shell [data]="item.likes"></app-text-shell>
+              </span>
+              <div class="item-price-range" slot="end">
+                <span class="price" *ngFor="let price of [].constructor(item.priceRange)">$</span>
+                <span class="no-price" *ngFor="let price of [].constructor(5 - (item.priceRange || 1))">$</span>
+              </div>
+            </ion-col>
+          </ion-card-content>
+        </ion-card>
       </ion-row>
     </div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">

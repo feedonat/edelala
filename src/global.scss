@@ -58,5 +58,8 @@ ion-header {
 }
 ion-header {
    // Adjust header padding to avoid overlapping with the status bar
-  //margin-top: 10px;
+   //margin-top: 10px;
+}
+.ion-toolbar {
+  height: 64px; /* Adjust the height as needed */
 }
