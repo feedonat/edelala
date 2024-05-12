@@ -55,10 +55,10 @@
     .info-row {
       --ion-grid-columns: 10;
       --ion-grid-column-padding: 0px;
-  
+      
       margin: 0px calc(var(--page-pictures-gutter) * -1);
           padding-bottom: var(--page-margin);
-  
+      margin: 5px;
       // To compensate negative side margins of .pictures-row (sibling of .info-row)
       &::before,
       &::after {

@@ -15,9 +15,8 @@ export class ListPage implements OnInit {
   constructor(private rentalService: RentalService , private router:Router) { }
 
   ngOnInit() {
-
     this.rentalService.getAllRentals().subscribe((data) => {
-      console.log(JSON.stringify(data))
+      console.log(' data === '+JSON.stringify(data))
       this.items =  of(data);
     })
   }
@@ -28,4 +27,9 @@ export class ListPage implements OnInit {
     )
   }
 
+  add(){
+  this.router.navigate(
+    [`/rental/new/`]
+  )
+  }
 }

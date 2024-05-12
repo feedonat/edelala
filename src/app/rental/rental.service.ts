@@ -79,10 +79,11 @@ getOneItem(id) {
 getAllRentals() {
   return this.db.collection('rental').snapshotChanges().pipe(
     map(actions => actions.map(a => {
-      const data = a.payload.doc.data();
+      const data:any = a.payload.doc.data();
       const id = a.payload.doc.id;
-      console.log("ITEMS OF COLL"+JSON.stringify(Object.assign(id, data)));
-      return Object.assign(id, data);
+      const result = { id: id, ...data };
+      console.log("ITEMS OF COLL"+JSON.stringify(result));
+      return result;
 
     }))
   )

@@ -9,13 +9,21 @@ import { DetailPageRoutingModule } from './detail-routing.module';
 import { DetailPage } from './detail.page';
 import { ShellModule } from 'src/app/shell/shell.module';
 import { SwiperModule } from 'swiper/angular';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,SwiperModule,
-    DetailPageRoutingModule,ShellModule
+    DetailPageRoutingModule,
+    ShellModule,
+    MomentModule.forRoot({
+      relativeTimeThresholdOptions: {
+        'm': 59
+      }
+    }),
+
   ],
   declarations: [DetailPage]
 })

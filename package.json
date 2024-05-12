@@ -9,7 +9,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "deploy": "npm install --force && ionic deploy"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +41,7 @@
     "cordova-plugin-telerik-imagepicker": "^2.3.6",
     "ionicons": "^7.0.0",
     "ng-otp-input": "^1.9.3",
+    "ngx-moment": "^6.0.2",
     "rxjs": "~7.8.0",
     "swiper": "^8.1.0",
     "tslib": "^2.3.0",

@@ -15,7 +15,7 @@ const routes: Routes = [
 
   {
     path: '',
-        redirectTo: 'new',
+        redirectTo: 'list',
         pathMatch: 'full'
   },
   {

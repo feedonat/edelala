@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -9,7 +10,7 @@ export class Tab1Page implements OnInit {
 
   categories = [];
   themeToggle: any;
-  constructor() {}
+  constructor(private router : Router) {}
   isDarkTheme = false;
   ngOnInit(): void {
     this.categories.push('Rental')
@@ -20,4 +21,11 @@ export class Tab1Page implements OnInit {
     this.categories.push('Car')
     this.categories.push('Ziwaj')
   }
+
+  rental(){
+    this.router.navigate(
+      [`/rental/`]
+    )
+  }
+
 }

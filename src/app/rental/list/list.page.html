@@ -16,7 +16,7 @@
   <ng-container *ngIf="items">
     <div class="listing-item" *ngFor="let item of items | async">
       <div class="cover-wrapper">
-        <a class="cover-anchor" [routerLink]="['/app/categories/food/', item.slug]">
+        <a class="cover-anchor" [routerLink]="['/rental/detail/', item?.id]">
               <div class="cover-icon-wrapper">
                 <ion-img [src]="item?.images[0]" alt=""></ion-img>
               </div>
@@ -26,8 +26,8 @@
         <ion-col class="description-col">
           <ion-row class="description-wrapper">
             <h3 class="item-name">
-              <a class="name-anchor" [routerLink]="['/app/categories/food/', item.slug]">
-                <ion-text>{{item?.desc}}</ion-text>
+              <a class="name-anchor" [routerLink]="['/rental/detail/', item?.id]">
+                <ion-text>{{item?.title}}</ion-text>
               </a>
             </h3>
             <p class="item-address">
@@ -53,6 +53,11 @@
         </ion-col>
       </ion-row>
     </div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="add" (click)="add()"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </ng-container>
 </ion-content>
 

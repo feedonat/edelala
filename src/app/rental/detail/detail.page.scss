@@ -1,4 +1,4 @@
-@import "theme/mixins/inputs/select-alert";
+// @import "theme/mixins/inputs/select-alert";
 
 // Custom variables
 // Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
@@ -14,6 +14,10 @@
   --page-related-items-gutter: calc(var(--page-margin) / 2);
 
  // --page-color: #cb328f;
+}
+
+.rental-info{
+    margin: 8px;
 }
 app-image-shell.showcase-image {
   --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
@@ -135,8 +139,7 @@ app-image-shell.showcase-image {
 // Alerts and in general all overlays are attached to the body or ion-app directly
 // We need to use ::ng-deep to access it from here
 ::ng-deep .variant-alert {
-  @include select-alert();
-
+ 
   // Variables should be in a deeper selector or after the mixin include to override default values
   --select-alert-color: var(--ion-color-lightest);
   --select-alert-background: var(--ion-color-primary);

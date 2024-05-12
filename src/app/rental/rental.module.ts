@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { RentalPageRoutingModule } from './rental-routing.module';
 
 import { RentalPage } from './rental.page';
-import { NewPageModule } from './new/new.module';
 
 @NgModule({
   imports: [
