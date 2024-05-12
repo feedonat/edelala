@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace "com.kedirosa.edelala"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.kedirosa.edelala"
         minSdkVersion rootProject.ext.minSdkVersion

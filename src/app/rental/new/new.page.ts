@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ImagePicker, ImagePickerOptions, OutputType } from '@ionic-native/image-picker/ngx';
 import { Platform , LoadingController,ActionSheetController} from '@ionic/angular'
 import { RentalService } from '../rental.service';
 import { AlertController, ToastController } from '@ionic/angular';
@@ -93,10 +92,6 @@ ngOnInit() {
 }
 
   async pickMultipleImages(){
-  var options: ImagePickerOptions ={
-    maximumImagesCount:6,
-    outputType:OutputType.DATA_URL,
-  }
   await FilePicker.pickImages({ readData: true }).then((results) => {
     for (var i = 0; i < results.files.length; i++) {
       //let filename = results[i].
