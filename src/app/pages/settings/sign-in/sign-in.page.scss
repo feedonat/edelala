@@ -11,7 +11,6 @@ ion-content {
   }
 }
 .background-image {
-    --background: url('../../../../assets/img/ecomm3.png') no-repeat center center/cover; /* Path to your image */
     //background-size: auto 100%; /* Cover the entire height and adjust width automatically */
     background-repeat: no-repeat; /* Prevent the background from repeating */
     width: 100%; /* Cover half of the screen horizontally */
@@ -46,3 +45,10 @@ ion-footer {
       }
   }
 }
+ion-toolbar {
+    --background: var(--ion-color-primary); /* Use the primary color */
+    height: 90px;
+    border-bottom-right-radius: 20px; /* Adjust the border radius as needed */
+    border-bottom-left-radius: 20px; /* Adjust the border radius as needed */
+    border: none; /* Remove the border */
+  }

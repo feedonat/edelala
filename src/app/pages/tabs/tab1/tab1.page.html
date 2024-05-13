@@ -1,19 +1,11 @@
-<ion-header [translucent]="true" [hidden]="true" class="ion-no-border">
+
+<ion-header color="primary" [translucent]="true" [hidden]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="notifications"></ion-icon>
-       </ion-button>
-    </ion-buttons>
+    <ion-title>Toolbar</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"> welcome </ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-row class="ion-justify-content-center ion-text-center category-row">
     <ion-col size="3"> <ion-button color="light"  size="medium" shape="round" (click)="rental()">Rental</ion-button> </ion-col>
     <ion-col size="3"> <ion-button color="light"  size="medium" shape="round">Daycare</ion-button> </ion-col>

@@ -198,6 +198,10 @@ ion-item{
   .action-btn-mid{
    margin-right: 0px;
   }
+  --background: var(--ion-color-primary);
+  height: 90px;
+  border-bottom-right-radius: 20px; /* Adjust the border radius as needed */
+  border-bottom-left-radius: 20px;
 }
 
 @keyframes fadein {

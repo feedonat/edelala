@@ -1,20 +1,7 @@
-<!-- 
-<ion-header  class="ion-no-border" [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="auth" mode="md" icon="chevron-back-outline"></ion-back-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="settings-outline"></ion-icon>
-       </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header> -->
 
 <ion-header class="ion-no-border">
-  <ion-toolbar fixed>
-    <ion-title mode="ios" class="bold">profile</ion-title>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -31,7 +18,6 @@
       *ngIf="!loginUser" (click)="openModal()">
       Create Account or login
     </ion-button>
-
   </section>
   <div class="content-section user-languages-wrapper">
     <ion-row class="language-item-row">
@@ -109,6 +95,5 @@
         </ion-list>
       </ion-col>
     </ion-row>
-
   </div>
 </ion-content>

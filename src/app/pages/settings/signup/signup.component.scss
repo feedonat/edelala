@@ -1,8 +1,4 @@
 
-ion-content {
-    --background: url('../../../../assets/img/ecomm3.png') no-repeat center center/cover;
-}
-
 ion-footer {
     height: 88%;
     ion-list {
@@ -44,4 +40,12 @@ ion-item {
   #user{
     font-size: 2em ;
     font-weight: 700;
+  }
+
+  ion-toolbar {
+    --background: var(--ion-color-primary); /* Use the primary color */
+    height: 90px;
+    border-bottom-right-radius: 20px; /* Adjust the border radius as needed */
+    border-bottom-left-radius: 20px; /* Adjust the border radius as needed */
+    border: none; /* Remove the border */
   }

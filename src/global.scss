@@ -50,16 +50,15 @@
   color: white;
 }
 
-ion-header {
-  &.ion-no-border {
-    --border-width: 0; /* Set border width to 0 */
-    --box-shadow: none; /* Set box-shadow to none */
-  }
-}
-ion-header {
-   // Adjust header padding to avoid overlapping with the status bar
-   //margin-top: 10px;
-}
-.ion-toolbar {
-  height: 64px; /* Adjust the height as needed */
-}
+// ion-header {
+//  // height: 90px;
+//   --ion-header-border-width: 0;
+// }
+// ion-toolbar{
+// height: 90px;
+// background-color: var(--ion-color-primary) !important; /* Use the primary color */
+// border-bottom-right-radius: 20px; /* Adjust the border radius as needed */
+// border-bottom-left-radius: 20px; /* Adjust the border radius as needed */
+// border: none;
+// --ion-header-border-width: 0;
+// }

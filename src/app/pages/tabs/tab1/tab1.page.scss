@@ -1,10 +1,11 @@
-ion-header {
-  --border-width: 0; /* Set border width to 0 */
-  --box-shadow: none; /* Set box-shadow to none */
-}
+
 ion-toolbar {
-  --border-width: 0; /* Set border width to 0 */
-  --box-shadow: none !important; /* Set box-shadow to none */
+  --background: var(--ion-color-primary); /* Use the primary color */
+  height: 90px;
+  border-bottom-right-radius: 20px; /* Adjust the border radius as needed */
+  border-bottom-left-radius: 20px; /* Adjust the border radius as needed */
+  border: none; /* Remove the border */
+  padding: 10px;
 }
 
 ion-button{

@@ -41,3 +41,11 @@ p{
         font-weight: bold;
         font-size: 1.2em;
     }
+
+    ion-toolbar {
+        --background: var(--ion-color-primary); /* Use the primary color */
+        height: 90px;
+        border-bottom-right-radius: 20px; /* Adjust the border radius as needed */
+        border-bottom-left-radius: 20px; /* Adjust the border radius as needed */
+        border: none; /* Remove the border */
+      }
