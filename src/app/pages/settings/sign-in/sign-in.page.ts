@@ -4,6 +4,7 @@ import { ModalController, ModalOptions } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { OtpComponent } from '../otp/otp.component';
 import { ModalService } from 'src/app/utils/modal.service';
+import { StorageService } from 'src/app/StorageService';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +18,8 @@ export class SignInPage implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private auth: AuthService,
-    private modalService : ModalService
+    private modalService : ModalService,
+    private storageService :StorageService
   ) { }
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class SignInPage implements OnInit {
       console.log(this.form.value);
 
      await this.auth.signInWithPhoneNumber('+1' + this.form.value.phone).then(res=>{
+      this.storageService.setValue("intro",true);
          console.log("response from phone authentication "+JSON.stringify(res))
      });
       const options: ModalOptions = {

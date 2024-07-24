@@ -16,7 +16,6 @@ export class SettingsPage implements OnInit {
   constructor(private modalCtrl: ModalController , private modalService : ModalService , private router: Router , private storageService : StorageService) { }
 
   ngOnInit() {
-
       this.storageService.getValue('user').then(u=>{
       if(u){
         this.loginUser = u;

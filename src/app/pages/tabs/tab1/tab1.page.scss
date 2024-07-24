@@ -64,4 +64,41 @@ ion-item.item {
     }
   }
 
+    ion-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+   
+
+}
+
+.circle-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15px;
+}
+.circle-card {
+  width: 70px;
+  height: 70px;
+  border-radius: 25%;
+  overflow: hidden;
+  padding: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.circle-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25%;
+}
+.title {
+  margin-top: 8px;
+  font-size: 0.8em;
+  font-weight: bold;
 }

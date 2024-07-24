@@ -1,33 +1,41 @@
 
 <ion-header color="primary" [translucent]="true" [hidden]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Toolbar</ion-title>
+    <ion-title><div>Toolbar</div></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-row class="ion-justify-content-center ion-text-center category-row">
-    <ion-col size="3"> <ion-button color="light"  size="medium" shape="round" (click)="rental()">Rental</ion-button> </ion-col>
-    <ion-col size="3"> <ion-button color="light"  size="medium" shape="round">Daycare</ion-button> </ion-col>
-    <ion-col
-      size="5"
-    >
-    <ion-button  color="light" size="medium" shape="round" id="open-modal"> 
-      <ion-icon name="caret-down-outline" slot="end"></ion-icon>Categories</ion-button>
-  
-    </ion-col>
-    <ion-col  size="1"></ion-col>
-  </ion-row>
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row  class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-button color="light" size="medium" shape="round" (click)="rental()" style="position: relative; height: 50px;">
+          Rental
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button color="light" size="medium" shape="round" style="position: relative; height: 50px;">
+          Daycare
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="light" size="medium" shape="round" id="open-modal" style="position: relative; height: 50px;">
+          Categories
+          <ion-icon name="caret-down-outline" slot="end"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <app-explore-container name="Tab 1 page"></app-explore-container>
 
   <ion-modal
+  mode="ios"
   trigger="open-modal"
   [initialBreakpoint]="0.60"
   [breakpoints]="[0, 0.25, 0.5, 0.75]"
   handleBehavior="cycle"
 >
   <ng-template>
-  
     <ion-content class="ion-padding">
       <div class="ion-margin-top">
         <ion-label>Select the services you want !.</ion-label>
@@ -36,14 +44,20 @@
         <ion-row>
           <ion-col class="column-center" size-xs="4" size-sm="4" size-md="3" size-lg="3"
             *ngFor="let category of categories">
-
+           <!-- 
             <ion-card>
               <img [src]="'./assets/img/'+ category + '.png' "/>
               <ion-card-header>
                 <ion-card-title>
                   {{ category}}</ion-card-title>
               </ion-card-header>
-            </ion-card>
+            </ion-card> -->
+              <div class="circle-card-container">
+              <ion-card class="circle-card">
+                <img [src]="'./assets/img/'+ category + '.png' " alt="Card Image"/>
+              </ion-card>
+              <div class="title"> {{category}}</div>
+            </div>
           </ion-col>
         </ion-row>
       </div>

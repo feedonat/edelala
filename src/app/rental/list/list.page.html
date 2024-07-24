@@ -3,19 +3,23 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Rentals</ion-title>
+    <ion-title><div>Rentals</div></ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ng-container *ngIf="items">
-    <div *ngFor="let item of items | async">
-      <ion-row class="info-row">
-        <ion-card mode="ios">
-          <img [src]="item?.images[0]" alt=""  [routerLink]="['/rental/detail/', item?.id]" />
+    <div>
+
+      <ion-grid fixed>
+        <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-sm="6" size-md="4" *ngFor="let item of items | async">
+        <ion-card tappable mode="ios">
+          <div tappable  [routerLink]="['/rental/detail/', item?.id]" class="product-image" [style.background-image]="'url('+item?.images[0]+')'">
+          </div>
           <ion-card-header>
             <ion-card-title>{{item?.title}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content tappable [routerLink]="['/rental/detail/', item?.id]">
             <p class="item-address">
               <ion-text>{{item.address}}</ion-text>
             </p>
@@ -28,7 +32,6 @@
                 </span>
               </ion-col>
             </ion-row>
-
             <ion-col class="stats-col">
               <span class="item-rating">
                 <app-text-shell [data]="item.likes"></app-text-shell>
@@ -40,7 +43,9 @@
             </ion-col>
           </ion-card-content>
         </ion-card>
+        </ion-col>
       </ion-row>
+      </ion-grid>
     </div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
       <ion-fab-button>

@@ -237,4 +237,34 @@
     border-bottom-right-radius: 20px; /* Adjust the border radius as needed */
     border-bottom-left-radius: 20px; /* Adjust the border radius as needed */
     border: none; /* Remove the border */
+    .toolbar-container {
+      margin-top: 60px;
+    }
   }
+
+  ion-grid {
+    --ion-grid-padding-sm: 20px;
+    --ion-grid-padding-md: 30px;
+    --ion-grid-padding-lg: 40px;
+    --ion-grid-padding-xl: 100px;
+      ion-col{
+        margin-bottom: -30px !important;
+      }
+    }
+
+    .product-image {
+      width: 100%;
+      height: 250px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      }
+      ion-card:hover {
+      transform: scale(1.03);
+      transition: 0.3s ease-out;
+      }
+      ion-card {
+      transform: scale(1);
+      transition: 0.3s ease-out;
+      }
+  
