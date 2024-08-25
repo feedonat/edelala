@@ -10,7 +10,7 @@
 
 <ion-content class="ion-padding">
   <form [formGroup] = "rentalForm" (ngSubmit)="saveRental()" class="form-container">
-    <ion-item [class.invalid]="rentalForm.get('propertyType').invalid && rentalForm.get('propertyType').touched">
+    <ion-item class="rounded-item" [class.invalid]="rentalForm.get('propertyType').invalid && rentalForm.get('propertyType').touched">
       <ion-label position="stacked">Property Type</ion-label>
       <ion-select formControlName="propertyType" placeholder="Select Property Type">
         <ion-select-option value="house">House</ion-select-option>
@@ -22,32 +22,37 @@
       <p *ngIf="rentalForm.get('propertyType').errors?.required">Property Type is required</p>
     </ion-text>
 
-    <ion-item [class.invalid]="rentalForm.get('title').invalid && rentalForm.get('title').touched">
-      <ion-label position="stacked">Title</ion-label>
+    <ion-item class="rounded-item" [class.invalid]="rentalForm.get('title').invalid && rentalForm.get('title').touched">
+      <ion-label position="floating">Title</ion-label>
       <ion-input formControlName="title" type="text" placeholder="Enter title"></ion-input>
     </ion-item>
 
-    <ion-item [class.invalid]="rentalForm.get('desc').invalid && rentalForm.get('desc').touched">
-      <ion-label position="stacked">Description</ion-label>
+    <ion-item class="rounded-item" [class.invalid]="rentalForm.get('desc').invalid && rentalForm.get('desc').touched">
+      <ion-label position="floating">Description</ion-label>
       <ion-input formControlName="desc" type="text" placeholder="Enter Description"></ion-input>
     </ion-item>
 
-    <ion-item [class.invalid]="rentalForm.get('address').invalid && rentalForm.get('address').touched">
-      <ion-label position="stacked">Address</ion-label>
-      <ion-input formControlName="address" type="text" placeholder="Enter Address"></ion-input>
+    <ion-item class="rounded-item" [class.invalid]="rentalForm.get('address').invalid && rentalForm.get('address').touched">
+      <ion-label position="floating">Address</ion-label>
+      <ion-input formControlName="address" type="text" placeholder="Enter Address" ></ion-input>
     </ion-item>
     <ion-text color="danger" *ngIf="rentalForm.get('address').invalid && rentalForm.get('address').touched">
       <p *ngIf="rentalForm.get('address').errors?.required">Address is required</p>
     </ion-text>
 
-    <ion-item [class.invalid]="rentalForm.get('rentAmount').invalid && rentalForm.get('rentAmount').touched">
-      <ion-label position="stacked">Rent Amount</ion-label>
-      <ion-input formControlName="rentAmount" type="number" placeholder="Enter Rent Amount"></ion-input>
+    <ion-item class="rounded-item" [class.invalid]="rentalForm.get('rentAmount').invalid && rentalForm.get('rentAmount').touched">
+      <ion-label position="floating">Rent Amount</ion-label>
+      <ion-input formControlName="rentAmount" type="Number" placeholder="Enter Rent Amount"></ion-input>
     </ion-item>
     <ion-text color="danger" *ngIf="rentalForm.get('rentAmount').invalid && rentalForm.get('rentAmount').touched">
       <p *ngIf="rentalForm.get('rentAmount').errors?.required">Rent Amount is required</p>
       <p *ngIf="rentalForm.get('rentAmount').errors?.pattern">Rent Amount must be a number</p>
     </ion-text>
+
+    <ion-item class="rounded-item">
+      <ion-label position="floating">Enter Text</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
     <ion-button type="submit" expand="block">Submit</ion-button>
   </form>
 

@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { OtpComponent } from '../otp/otp.component';
 import { ModalService } from 'src/app/utils/modal.service';
 import { StorageService } from 'src/app/StorageService';
+import { getAuth, signOut } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-sign-in',
@@ -58,5 +59,14 @@ export class SignInPage implements OnInit {
     } catch(e) {
       console.log(e);
     }
+    this.storageService.setValue("intro",true);
+  }
+
+  signOut(){
+    const auth = getAuth();
+    signOut(auth).then(() => {
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 }

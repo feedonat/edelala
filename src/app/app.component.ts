@@ -34,7 +34,17 @@ export class AppComponent implements OnInit {
     if(u){
       this.loginUser = u;
     }else{
+      this.checkIntro();
+    }
+  });
+}
+
+checkIntro(){
+  this.storageService.getValue('intro').then(u=>{
+    if(u){
       this.router.navigateByUrl('/setting/signin')
+    }else{
+      this.router.navigateByUrl('intro');
     }
   });
 }

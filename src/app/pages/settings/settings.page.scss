@@ -224,3 +224,16 @@ ion-toolbar.ios {
     border-bottom-left-radius: 20px; /* Adjust the border radius as needed */
     border: none; /* Remove the border */
   }
+
+  .rounded-item {
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: var(--ion-color-light); /* Light color to ensure visibility in dark mode */
+    --ion-item-background:var(--ion-color-light);
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  .rounded-item:focus-within {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow when input is focused */
+  }
